@@ -1,3 +1,6 @@
+if(NOT BUILD_TESTING)
+  return()
+endif()
 
 ADD_EXECUTABLE(test_raycasting test_raycasting.cpp)
 TARGET_LINK_LIBRARIES(test_raycasting octomap)
