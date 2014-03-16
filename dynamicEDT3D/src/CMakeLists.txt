@@ -9,7 +9,7 @@ target_link_libraries(dynamicedt3d ${OCTOMAP_LIBRARIES})
 add_library(dynamicedt3d-static STATIC ${dynamicEDT3D_SRCS})
 target_link_libraries(dynamicedt3d-static ${OCTOMAP_LIBRARIES})
 
-SET_TARGET_PROPERTIES(dynamicedt3d-static PROPERTIES OUTPUT_NAME "dynamicedt3d") 
+SET_TARGET_PROPERTIES(dynamicedt3d-static PROPERTIES OUTPUT_NAME "dynamicedt3d")
 
 # directly depend on the octomap library target when building the
 # complete distribution, so it it recompiled as needed
@@ -20,7 +20,7 @@ endif()
 
 ADD_SUBDIRECTORY(examples)
 
-install(TARGETS 
+install(TARGETS
   dynamicedt3d
   dynamicedt3d-static
   ${INSTALL_TARGETS_DEFAULT_ARGS})

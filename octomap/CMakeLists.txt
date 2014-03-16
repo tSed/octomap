@@ -72,7 +72,7 @@ add_custom_target(uninstall
 # Export the package for use from the build-tree
 # (this registers the build-tree with a global CMake-registry)
 export(PACKAGE octomap)
- 
+
 # Create a octomap-config.cmake file for the use from the build tree
 set(OCTOMAP_INCLUDE_DIRS "${INCLUDE_DIRS}")
 set(OCTOMAP_LIB_DIR "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}")
@@ -87,7 +87,7 @@ configure_file(octomap-config-version.cmake.in
 #install(EXPORT FooBarLibraryDepends DESTINATION
 #  "${INSTALL_DATA_DIR}/FooBar/CMake"
 #  COMPONENT dev)
- 
+
 # Create a octomap-config.cmake file for the use from the install tree
 # and install it
 set(OCTOMAP_INCLUDE_DIRS "${CMAKE_INSTALL_PREFIX}/include")
@@ -99,7 +99,7 @@ configure_file(octomap-config-version.cmake.in
   "${PROJECT_BINARY_DIR}/InstallFiles/octomap-config-version.cmake" @ONLY)
 install(FILES
   "${PROJECT_BINARY_DIR}/InstallFiles/octomap-config.cmake"
-  "${PROJECT_BINARY_DIR}/InstallFiles/octomap-config-version.cmake" 
+  "${PROJECT_BINARY_DIR}/InstallFiles/octomap-config-version.cmake"
   DESTINATION share/octomap/)
 
 # Write pkgconfig-file:
@@ -110,7 +110,7 @@ install_pkg_config_file(octomap
     REQUIRES
     VERSION ${OCTOMAP_VERSION})
 
-# Documentation 
+# Documentation
 FIND_PACKAGE(Doxygen)
 IF(DOXYGEN_FOUND)
   configure_file(${CMAKE_CURRENT_SOURCE_DIR}/octomap.dox.in ${CMAKE_CURRENT_BINARY_DIR}/octomap.dox @ONLY)
