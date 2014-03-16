@@ -20,13 +20,22 @@
 # and OpenCVConfig.cmake.in from OpenCV
 # ===================================================================================
 
- 
-set(OCTOMAP_INCLUDE_DIRS "@OCTOMAP_INCLUDE_DIRS@")
-set(OCTOMAP_LIBRARY_DIRS "@OCTOMAP_LIB_DIR@")
- 
+set(OCTOMAP_INCLUDE_DIRS)
+set(OCTOMAP_INCLUDE OCTOMAP_INCLUDE-NOTFOUND)
+find_path(OCTOMAP_INCLUDE octomap/octomap.h)
+if(OCTOMAP_INCLUDE)
+  list(APPEND OCTOMAP_INCLUDE_DIRS ${OCTOMAP_INCLUDE})
+endif()
 
-# Set library names as absolute paths:
-set(OCTOMAP_LIBRARIES
-  "@OCTOMAP_LIB_DIR@/liboctomap@CMAKE_SHARED_LIBRARY_SUFFIX@"
-  "@OCTOMAP_LIB_DIR@/liboctomath@CMAKE_SHARED_LIBRARY_SUFFIX@"
-)
+set(OCTOMAP_LIBRARIES)
+set(OCTOMAP_LIB OCTOMAP_LIB-NOTFOUND)
+find_library(OCTOMAP_LIB octomap)
+if(OCTOMAP_LIB)
+  list(APPEND OCTOMAP_LIBRARIES ${OCTOMAP_LIB})
+endif()
+
+set(OCTOMATH_LIB OCTOMATH_LIB-NOTFOUND)
+find_library(OCTOMATH_LIB octomath)
+if(OCTOMATH_LIB)
+  list(APPEND OCTOMAP_LIBRARIES ${OCTOMATH_LIB})
+endif()
